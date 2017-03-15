@@ -6,4 +6,10 @@
 	<link rel="icon" href="<?php echo URL; ?>Views/images/logo.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link rel="stylesheet" href="<?php echo URL; ?>Views/Trumbowyg/dist/ui/trumbowyg.min.css">
+
+	<style>
+	 a {
+	 	color : #13AADC;
+	 }
+	</style>
 	

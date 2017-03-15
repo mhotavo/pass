@@ -21,7 +21,7 @@
 						<div class="form-group">
 							<label for="inputNombres" class="col-lg-2 control-label">Clave</label>
 							<div class="col-lg-10">
-								<input type="text" class="form-control" name="clave" value="<?php echo  $datos['CLAVE'] ;  ?>"">
+								<input type="text" class="form-control" name="clave" value="<?php echo  base64_decode($datos['CLAVE']) ;  ?>"">
 							</div>
 						</div>  	
 						<div class="form-group">
