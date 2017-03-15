@@ -14,7 +14,7 @@ function goLogin() {
                 result += '<p><strong>Espera un momento por favor.</strong></p>';
                 result += ' </div>';
                 __('_AJAX_LOGIN_').innerHTML = result;
-                window.location = 'Statistics';
+                window.location = 'Pass';
                 //location.reload();
             } else {
                 __('_AJAX_LOGIN_').innerHTML = connect.responseText;

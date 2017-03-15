@@ -9,7 +9,7 @@
 		 if (!isset($_SESSION['app_id'])){
 		 	require_once ("HTML/Public/login.html");
 		 }else {
-		 	header("Location:" . URL . "Temas");
+		 	header("Location:" . URL . "Pass");
 		 }
 		
 	}

@@ -15,7 +15,7 @@
             <thead>
               <tr>
                 <th></th>
-                <th>Sitio</th>
+                <th class="hidden-xs">Sitio</th>
                 <th>Usuario</th>
                 <th>Clave</th>
                 <th>Acción</th>
@@ -31,16 +31,16 @@
                   </a>
                   <?php } ?>  
                 </td>
-                <td>
+                <td class="hidden-xs">
                   <a href="<?php  echo $row['URL']; ?>" target="_blank"><?php  echo $row['SITIO']; ?>
                   </a>
                 </td>
                 <td><?php  echo $row['USUARIO']; ?></td>
-                <td><?php  echo $row['CLAVE']; ?></td>
+                <td><?php  echo base64_decode($row['CLAVE']); ?></td>
                 <td>
                   <a  class="btn btn-warning" href="<?php echo URL; ?>Pass/editar/<?php echo $row['ID']; ?>"><i class="fa fa-wrench" aria-hidden="true"></i>
                   </a> 
-                  <a  class="btn btn-danger" onclick="DeleteItem('¿Está seguro de eliminar este sitio?','<?php echo URL; ?>Pass/eliminar/<?php echo $row['ID']; ?>')" ><i class="fa fa-trash" aria-hidden="true"></i>
+                  <a  class=" hidden-xs btn btn-danger" onclick="DeleteItem('¿Está seguro de eliminar este sitio?','<?php echo URL; ?>Pass/eliminar/<?php echo $row['ID']; ?>')" ><i class="fa fa-trash" aria-hidden="true"></i>
                   </a> 
                 </td>
               </tr>

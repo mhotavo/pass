@@ -32,9 +32,7 @@ class GoLogin
 		}  
 	}
 	public function validar(){
-			# $this->encrypt($this->pass); exit();
 		if ( !empty($this->user) and !empty( $this->pass)) {
-
 
 			$sql="SELECT ID,ROL, CONCAT(NOMBRES, ' ', P_APELLIDO) AS NOMBRE FROM usuarios WHERE (USER='{$this->user}' OR EMAIL='{$this->user}') AND PASS='{$this->encrypt($this->pass)}' LIMIT 1;";
 			$datos=  $this->db->consultaRetorno($sql);
@@ -42,7 +40,7 @@ class GoLogin
 			$total = $this->db->total_rows($datos);
 
 			if ($total>0) {
-				/*if($_POST['sesion']) { ini_set('session.cookie_lifetime', time() + (60*60*24)); }*/
+				if($_POST['sesion']) { ini_set('session.cookie_lifetime', time() + (60*60*24)); }
 				$_SESSION['app_id'] = $row['ID'];
 				$_SESSION['rol'] = $row['ROL'];
 				$_SESSION['nombre'] = $row['NOMBRE'];

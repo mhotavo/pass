@@ -8,7 +8,7 @@ class Pass {
 	private $img;
 	private $url;
 	private $usuario;
-	private $usuarioLog;
+	private $usuariolog;
 	private $db;
 
 	public function __construct(){
@@ -31,6 +31,7 @@ class Pass {
 	}  
 
 	public function listar(){
+
 		$sql="SELECT * from log order by FECHA desc";
 		$datos=$this->db->consultaRetorno($sql);
 		return $datos;
@@ -49,7 +50,7 @@ class Pass {
 		VALUES 
 		(NULL, 
 		'{$this->usuario}', 
-		'{$this->clave}', 
+		'".base64_encode($this->clave)."', 
 		'{$this->sitio}', 
 		'{$this->url}', 
 		'{$this->img}', 
@@ -68,7 +69,7 @@ class Pass {
 	public function edit() {
 		$sql="UPDATE log SET 
 		USUARIO='{$this->usuario}',
-		CLAVE='{$this->clave}',
+		CLAVE='".base64_encode($this->clave)."',
 		SITIO ='{$this->sitio}',	  
 		URL ='{$this->url}',	  
 		IMG ='{$this->img}'	  
