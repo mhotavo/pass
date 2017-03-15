@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: Feb 28, 2017 at 09:29 PM
--- Server version: 10.1.20-MariaDB
--- PHP Version: 7.0.8
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 15-03-2017 a las 22:56:49
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,39 +17,38 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id933007_nm`
+-- Base de datos: `pass`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tema`
+-- Estructura de tabla para la tabla `log`
 --
 
-CREATE TABLE `tema` (
-  `ID_TEMA` int(11) NOT NULL,
-  `TEMA` varchar(50) NOT NULL,
-  `DESCRIPCION` text NOT NULL,
+CREATE TABLE `log` (
+  `ID` int(11) NOT NULL,
+  `USUARIO` varchar(50) NOT NULL,
+  `CLAVE` text NOT NULL,
+  `SITIO` text,
+  `URL` text,
+  `IMG` text,
   `FECHA` date DEFAULT NULL,
   `USUARIOLOG` bigint(11) NOT NULL,
   `FECHALOG` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tema`
+-- Volcado de datos para la tabla `log`
 --
 
-INSERT INTO `tema` (`ID_TEMA`, `TEMA`, `DESCRIPCION`, `FECHA`, `USUARIOLOG`, `FECHALOG`) VALUES
-(1, '', 'Andres', '2017-02-14', 1, '2017-02-28 19:47:29'),
-(2, 'Casa Nicol', 'Sex', '2017-01-26', 1, '2017-02-28 19:48:15'),
-(3, 'Casa Milton', 'El', '2017-02-22', 1, '2017-02-28 19:48:34'),
-(4, 'Casa Milton', 'El', '2017-02-17', 1, '2017-02-28 19:49:06'),
-(5, 'Casa Nicol', 'Sex', '2017-02-08', 1, '2017-02-28 19:49:47');
+INSERT INTO `log` (`ID`, `USUARIO`, `CLAVE`, `SITIO`, `URL`, `IMG`, `FECHA`, `USUARIOLOG`, `FECHALOG`) VALUES
+(7, 'MHOTAVO', 'UXUzM25TMGZ0d2FyZQ==', 'Facebook', 'https://www.seeklogo.net/wp-content/uploads/2016/09/facebook-icon-preview-1-400x400.png', 'https://www.seeklogo.net/wp-content/uploads/2016/09/facebook-icon-preview-1-400x400.png', '2017-03-15', 1, '2017-03-15 21:39:54');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -71,31 +70,38 @@ CREATE TABLE `usuarios` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`ID`, `DOC`, `USER`, `PASS`, `EMAIL`, `ROL`, `NOMBRES`, `P_APELLIDO`, `S_APELLIDO`, `GENERO`, `FECHA_REGISTRO`, `IMAGEN`, `KEYPASS`, `NEWPASS`, `ULTIMA_CONEXION`) VALUES
-(1, 1110540682, 'admin', '5d54204106c1ca8c4a6b5d9edb9b8773', 'milton.otavo@gmail.com', 1, 'MILTON', 'OTAVO', 'VARON', 'M', '2016-07-03', '20401-3254avatar.jpg', '573e5feb61b20121114c322b050f0dfd', '9699F73A', 0);
+(1, 1110540682, 'mhotavo', 'dcf73adeb505811abc0d1a8cc902e028', 'milton.otavo@gmail.com', 1, 'MILTON', 'OTAVO', 'VARON', 'M', '2016-07-03', '20401-3254avatar.jpg', '573e5feb61b20121114c322b050f0dfd', '9699F73A', 0);
 
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `tema`
---
-ALTER TABLE `tema`
-  ADD PRIMARY KEY (`ID_TEMA`);
-
---
--- AUTO_INCREMENT for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `tema`
+-- Indices de la tabla `log`
 --
-ALTER TABLE `tema`
-  MODIFY `ID_TEMA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `log`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `USUARIOLOG` (`USUARIOLOG`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `log`
+--
+ALTER TABLE `log`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
