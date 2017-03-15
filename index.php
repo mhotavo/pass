@@ -11,7 +11,7 @@ define('DB_NAME', 'pass');
 #Constantes app
 define('DS', DIRECTORY_SEPARATOR);
 define('ROOT', realpath(dirname(__FILE__)) . DS);
-define('URL', "http://localhost/NM/");
+define('URL', "http://localhost/pass/");
 define('HTML_DIR', 'HTML/');
 
 
