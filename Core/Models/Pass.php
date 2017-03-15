@@ -8,6 +8,7 @@ class Pass {
 	private $img;
 	private $url;
 	private $usuario;
+	private $usuarioLog;
 	private $db;
 
 	public function __construct(){
@@ -53,7 +54,7 @@ class Pass {
 		'{$this->url}', 
 		'{$this->img}', 
 		'{$this->fecha}', 
-		'{$this->usuario}'); ";
+		'{$this->usuarioLog}'); ";
 		$this->db->consultaSimple($sql);
 
 	}

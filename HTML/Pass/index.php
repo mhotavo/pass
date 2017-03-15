@@ -14,6 +14,7 @@
           <table class="table table-striped table-hover dataTable" id="">
             <thead>
               <tr>
+                <th></th>
                 <th>Sitio</th>
                 <th>Usuario</th>
                 <th>Clave</th>
@@ -23,13 +24,24 @@
             <tbody> 
               <?php while($row = mysqli_fetch_array($datos)){ ?>
               <tr>           
-
-                <td><?php  echo $row['SITIO']; ?></td>
+                <td><?php  
+                  if (!empty($row['IMG'])) { ?>
+                  <a href="<?php  echo $row['URL']; ?>" target="_blank">
+                    <img src="<?php echo $row['IMG']; ?>" alt="<?php  echo $row['SITIO']; ?>" width="45px">
+                  </a>
+                  <?php } ?>  
+                </td>
+                <td>
+                  <a href="<?php  echo $row['URL']; ?>" target="_blank"><?php  echo $row['SITIO']; ?>
+                  </a>
+                </td>
                 <td><?php  echo $row['USUARIO']; ?></td>
                 <td><?php  echo $row['CLAVE']; ?></td>
                 <td>
-                  <a  class="btn btn-warning" href="<?php echo URL; ?>Pass/editar/<?php echo $row['ID']; ?>">Editar&nbsp;</a> 
-                  <a  class="btn btn-danger" onclick="DeleteItem('¿Está seguro de eliminar este sitio?','<?php echo URL; ?>Pass/eliminar/<?php echo $row['ID']; ?>')" >Borrar</a> 
+                  <a  class="btn btn-warning" href="<?php echo URL; ?>Pass/editar/<?php echo $row['ID']; ?>"><i class="fa fa-wrench" aria-hidden="true"></i>
+                  </a> 
+                  <a  class="btn btn-danger" onclick="DeleteItem('¿Está seguro de eliminar este sitio?','<?php echo URL; ?>Pass/eliminar/<?php echo $row['ID']; ?>')" ><i class="fa fa-trash" aria-hidden="true"></i>
+                  </a> 
                 </td>
               </tr>
               <?php 
@@ -50,7 +62,7 @@
     $(document).ready(function() {
       $('.dataTable').DataTable({
         "iDisplayLength": 25,
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "lengthMenu": false,
         "autoWidth": true,           
         "sPaginationType": "full_numbers",
         "order": [[ 1, 'desc' ]]

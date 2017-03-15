@@ -12,7 +12,7 @@
      </div>
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
       <ul class="nav navbar-nav">
-       <li><a href="<?php echo URL; ?>Pass/Agregar"> Agregar  <i class="fa fa-bed" aria-hidden="true"></i></a></li> 
+       <li><a href="<?php echo URL; ?>Pass/Agregar"> Agregar  <i class="fa fa-user" aria-hidden="true"></i></a></li> 
      </ul>
      <ul class="nav navbar-nav">
        <li><a href="<?php echo URL; ?>Pass"> Listar <i class="fa fa-list" aria-hidden="true"></i></i></a></li> 
