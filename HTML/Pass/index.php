@@ -29,7 +29,7 @@
                 <td><?php  echo $row['CLAVE']; ?></td>
                 <td>
                   <a  class="btn btn-warning" href="<?php echo URL; ?>Pass/editar/<?php echo $row['ID']; ?>">Editar&nbsp;</a> 
-                  <a  class="btn btn-danger" onclick="DeleteItem('¿Está seguro de eliminar este sitio?','<?php echo URL; ?>Temas/eliminar/<?php echo $row['ID']; ?>')" >Borrar</a> 
+                  <a  class="btn btn-danger" onclick="DeleteItem('¿Está seguro de eliminar este sitio?','<?php echo URL; ?>Pass/eliminar/<?php echo $row['ID']; ?>')" >Borrar</a> 
                 </td>
               </tr>
               <?php 

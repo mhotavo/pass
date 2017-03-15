@@ -36,7 +36,7 @@ class Pass {
 	}
 
 	public function add(){
-	echo	$sql="INSERT INTO log 
+		$sql="INSERT INTO log 
 		(ID,
 		USUARIO,
 		CLAVE,
@@ -73,6 +73,14 @@ class Pass {
 		IMG ='{$this->img}'	  
 		WHERE ID='{$this->id}';";
 		$this->db->consultaSimple($sql);
+	}
+
+	public function view(){
+		$sql="SELECT * FROM log WHERE ID='{$this->id}'";
+		$datos = $this->db->consultaRetorno($sql);
+		$row = mysqli_fetch_assoc($datos);
+		return $row;
+
 	}
 
 } 
